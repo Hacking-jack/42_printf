@@ -1,7 +1,8 @@
 # Configuration
 NAME = libftprintf.a
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+#CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -Ilibft
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 

@@ -17,5 +17,15 @@
 # include <stdlib.h>
 # include "libft/libft.h"
 
-int	ft_printf(char const *format, ...);
+int<D-6>	ft_printf(char const *format, ...);
+
+int	ft_printstr(char* string);
+
+int	ft_print_char(char c);
+
+int	ft_print_ponit(char* string);
+
+int	ft_print_double(char* string);
+
+int	
 #endif
