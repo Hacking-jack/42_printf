@@ -2,7 +2,7 @@
 NAME = libftprintf.a
 CC = cc
 #CFLAGS = -Wall -Wextra -Werror
-CFLAGS = -Wall -Wextra -Werror -Ilibft
+CFLAGS = -Wall -Wextra -Werror -I. -Ilibft
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 

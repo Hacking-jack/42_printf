@@ -9,9 +9,10 @@
 /*   Updated: 2025/11/04 22:59:41 by danrodr3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libftprintf.h"
+#include "ft_printf.h"
+
 int	ft_print_char(char c)
 {
-	ft_putchar_fd(c,1);
+	ft_putchar_fd(c, 1);
 	return (1);
 }

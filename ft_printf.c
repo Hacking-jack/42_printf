@@ -9,29 +9,27 @@
 /*   Updated: 2025/11/04 20:27:34 by danrodr3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-# include "libftprintf.h"
+#include "ft_printf.h"
 
-int	type(char espec,int arg, va_list args)
+int	type(char espec, va_list args)
 {
-	if(espec == 'c')
-		return (ft_print_char(args[arg][0]));
-	else if(espec == 's')
-		return (ft_printstr(args[arg]));
-	else if(espec == 'p')
-		return (ft_print_ponit(args[arg]));
-	else if(espec == 'd')
-		return (ft_print_double(args[arg]));
-	else if(espec == 'i')
-		return (ft_printnum(args[arg], false));
-	else if(espec == 'u')
-		return (ft_printnum(args[arg], true));
-	else if(espec == 'x')
-		return (ft_print_hex(args[arg], false));
-	else if(espec == 'X')
-		return (ft_print_hex(args[arg], true));
-	else if(espec == '%')
+	if (espec == 'c')
+		return (ft_print_char(va_arg(args, int)));
+	else if (espec == 's')
+		return (ft_printstr(va_arg(args, char *)));
+	else if (espec == 'p')
+		return (ft_print_point(va_arg(args, void *)));
+	else if (espec == 'd' || espec == 'i')
+		return (ft_printnum(va_arg(args, int)));
+	else if (espec == 'u')
+		return (ft_printnum(va_arg(args, unsigned int)));
+	else if (espec == 'x')
+		return (ft_print_hex(va_arg(args, unsigned int), 0));
+	else if (espec == 'X')
+		return (ft_print_hex(va_arg(args, unsigned int), 1));
+	else if (espec == '%')
 		return (ft_print_char('%'));
-
+	return (0);
 }
 
 int	ft_printf(char const *format, ...)
@@ -41,22 +39,23 @@ int	ft_printf(char const *format, ...)
 	int		len;
 	int		arg;
 
-	va_start(args,format);
+	va_start(args, format);
 	count = 0;
 	len = 0;
 	arg = 0;
-	while( format[count])
+	while (format[count])
 	{
-		if(format[count] == '%')
+		if (format[count] == '%')
 		{
 			count++;
 			arg++;
-			len += type(format[count], arg, args);
-		}else
+			len += type(format[count], args);
+		}
+		else
 		{
 			count++;
 			len ++;
-			ft_putchar(format[count]);
+			ft_putchar_fd(format[count], 1);
 		}
 	}
 	return (len);
