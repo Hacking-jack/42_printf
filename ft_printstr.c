@@ -10,9 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
+#include "libft/libft.h"
 
 int	ft_printstr(char *string)
 {
+	if (string == NULL)
+		string = "(null)";
 	ft_putstr_fd(string, 1);
 	return (ft_strlen(string));
 }

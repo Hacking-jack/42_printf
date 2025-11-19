@@ -20,16 +20,12 @@
 # include "libft/libft.h"
 
 int	ft_printf(char const *format, ...);
-
 int	ft_printstr(char *string);
-
 int	ft_print_char(char c);
-
 int	ft_print_point(void *point);
-
 int	ft_print_double(float number);
-
 int	ft_printnum(int number);
+int	ft_print_uns(unsigned int number);
+int	ft_print_hex(unsigned int num, int up_case);
 
-int	ft_print_hex(int num, int up_case);
 #endif

@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "ft_printf.h"
 
-int	type(char espec, va_list args)
+static int	type(char espec, va_list args)
 {
 	if (espec == 'c')
 		return (ft_print_char(va_arg(args, int)));
@@ -22,7 +22,7 @@ int	type(char espec, va_list args)
 	else if (espec == 'd' || espec == 'i')
 		return (ft_printnum(va_arg(args, int)));
 	else if (espec == 'u')
-		return (ft_printnum(va_arg(args, unsigned int)));
+		return (ft_print_uns(va_arg(args, unsigned int)));
 	else if (espec == 'x')
 		return (ft_print_hex(va_arg(args, unsigned int), 0));
 	else if (espec == 'X')
@@ -37,26 +37,20 @@ int	ft_printf(char const *format, ...)
 	va_list	args;
 	int		count;
 	int		len;
-	int		arg;
 
 	va_start(args, format);
 	count = 0;
 	len = 0;
-	arg = 0;
 	while (format[count])
 	{
 		if (format[count] == '%')
 		{
 			count++;
-			arg++;
 			len += type(format[count], args);
+			count++;
 		}
 		else
-		{
-			count++;
-			len ++;
-			ft_putchar_fd(format[count], 1);
-		}
+			len += ft_print_char(format[count++]);
 	}
 	return (len);
 }

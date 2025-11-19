@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
+#include "libft/libft.h"
 
-int	ft_putnbr_base(int nbr, char *base)
+static int	ft_putnbr_base(unsigned int nbr, char *base)
 {
 	int	size;
 	int	result[256];
@@ -19,10 +20,8 @@ int	ft_putnbr_base(int nbr, char *base)
 	int	count;
 
 	i = 0;
-	size = 0;
+	size = ft_strlen(base);
 	count = 0;
-	while (base[size])
-		size++;
 	while (nbr)
 	{
 		result[i] = nbr % size;
@@ -35,7 +34,7 @@ int	ft_putnbr_base(int nbr, char *base)
 	return (count);
 }
 
-int	ft_print_hex(int hex, int up_case)
+int	ft_print_hex(unsigned int hex, int up_case)
 {
 	if (up_case == 1)
 		return (ft_putnbr_base (hex, "0123456789ABCDEF"));

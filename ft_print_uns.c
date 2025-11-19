@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printnum.c                                      :+:      :+:    :+:   */
+/*   ft_print_uns.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: danrodr3 <danrodr3@students.42madrid.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/11 15:42:08 by danrodr3          #+#    #+#             */
-/*   Updated: 2025/11/11 15:56:27 by danrodr3         ###   ########.fr       */
+/*   Created: 2025/11/18 18:44:14 by danrodr3          #+#    #+#             */
+/*   Updated: 2025/11/18 18:49:32 by danrodr3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
 #include "libft/libft.h"
-
-/*static int	recur(int n)
-{ 
+static int	recur(unsigned int n, int fd)
+{
 	long	nbr;
 	int		len;
-	int		fd;
 
-	fd = 1;
 	len = 0;
 	nbr = n;
 	if (nbr < 0)
@@ -28,29 +25,12 @@
 		len++;
 	}
 	if (nbr >= 10)
-		len = recur(nbr / 10);
+		len = recur(nbr / 10, fd);
 	ft_putchar_fd((nbr % 10) + '0', fd);
 	len++;
 	return (len);
-}*/
-int	ft_printnum(int num)
+}
+int	ft_print_uns(unsigned int number)
 {
-	long	len;
-	long	nbr;
-
-	len = 0;
-	nbr = num;
-	ft_putnbr_fd(num,1);
-	if (nbr < 0)
-	{
-		nbr = -nbr;
-		len++;
-	}
-	while (nbr > 0)
-	{
-		nbr /= 10;
-		len++;
-	}
-	len++;
-	return ((int) len);
+	return (recur(number, 1));
 }
