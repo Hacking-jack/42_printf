@@ -35,6 +35,8 @@ static int	ft_putnbr_base(unsigned int nbr, char *base)
 
 int	ft_print_hex(unsigned int hex, int up_case)
 {
+	if (hex == 0)
+		return (ft_print_char('0'));
 	if (up_case == 1)
 		return (ft_putnbr_base (hex, "0123456789ABCDEF"));
 	else
