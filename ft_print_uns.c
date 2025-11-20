@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
-#include "libft/libft.h"
+
 static int	recur(unsigned int n, int fd)
 {
 	long	nbr;
@@ -30,6 +30,7 @@ static int	recur(unsigned int n, int fd)
 	len++;
 	return (len);
 }
+
 int	ft_print_uns(unsigned int number)
 {
 	return (recur(number, 1));

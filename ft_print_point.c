@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 #include "ft_printf.h"
 #include <stdio.h>
+
 static int	print_hex(uintptr_t pont)
 {
 	int	count;
@@ -19,16 +20,17 @@ static int	print_hex(uintptr_t pont)
 	if (pont >= 16)
 		count += print_hex(pont / 16);
 	count += ft_print_char("0123456789abcdef"[pont % 16]);
-	return count;
+	return (count);
 }
+
 int	ft_print_point(void *point)
 {
-	int				i;
+	int			i;
 	uintptr_t	pont;
 
 	i = 0;
 	if (!point)
-		return ft_printstr("(nil)");
+		return (ft_printstr("(nil)"));
 	pont = (uintptr_t) point;
 	i += ft_printstr("0x");
 	i += print_hex(pont);
