@@ -9,7 +9,8 @@ LIBFT = $(LIBFT_DIR)/libft.a
 #SRCS = $(wildcard ft_*.c)
 
 # File sources 
-SRCS = 
+SRCS = ft_print_char.c ft_printf.c ft_print_hex.c ft_printnum.c \
+ft_print_point.c ft_printstr.c ft_print_uns.c
 
 # Final object files
 OBJS = $(SRCS:.c=.o)

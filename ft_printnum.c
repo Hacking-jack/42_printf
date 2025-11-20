@@ -32,30 +32,3 @@ int	ft_printnum(int n)
 	i += write(1, &c, 1);
 	return (i);
 }
-/*
-int	ft_printnum(int num)
-{
-	long	len;
-	long	nbr;
-
-	len = 0;
-	nbr = num;
-	ft_putnbr_fd(num,1);
-	if (nbr < 0)
-	{
-		nbr = -nbr;
-		len++;
-	}
-	while (nbr > 0)
-	{
-		nbr /= 10;
-		len++;
-	}
-	len++;
-	return ((int) len);
-}
-int main(void)
-{
-	int i = ft_printnum(-99999);
-	printf("\n%i",i);
-}*/

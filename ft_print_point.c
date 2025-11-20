@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
-#include <stdio.h>
 
 static int	print_hex(uintptr_t pont)
 {
