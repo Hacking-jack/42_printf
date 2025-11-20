@@ -30,7 +30,7 @@ int	ft_print_point(void *point)
 	if (!point)
 		return ft_printstr("(nil)");
 	pont = (uintptr_t) point;
-	i = ft_printstr("0x");
-	i = print_hex(pont);
+	i += ft_printstr("0x");
+	i += print_hex(pont);
 	return (i);
 }

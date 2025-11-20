@@ -1,16 +1,15 @@
 # Configuration
 NAME = libftprintf.a
 CC = cc
-#CFLAGS = -Wall -Wextra -Werror
-CFLAGS = -Wall -Wextra -Werror -I. -Ilibft
+CFLAGS = -Wall -Wextra -Werror
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
 # wildcard use just developing
-SRCS = $(wildcard ft_*.c)
+#SRCS = $(wildcard ft_*.c)
 
 # File sources 
-# SRCS = 
+SRCS = 
 
 # Final object files
 OBJS = $(SRCS:.c=.o)

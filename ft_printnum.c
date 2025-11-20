@@ -11,28 +11,28 @@
 /* ************************************************************************** */
 #include "ft_printf.h"
 #include "libft/libft.h"
+#include <stdio.h>
 
-/*static int	recur(int n)
-{ 
+int	ft_printnum(int n)
+{
 	long	nbr;
-	int		len;
-	int		fd;
+	int		i;
+	char	c;
 
-	fd = 1;
-	len = 0;
+	i = 0;
 	nbr = n;
 	if (nbr < 0)
 	{
-		ft_putchar_fd('-', fd);
+		i += write(1, "-", 1);
 		nbr = -nbr;
-		len++;
 	}
 	if (nbr >= 10)
-		len = recur(nbr / 10);
-	ft_putchar_fd((nbr % 10) + '0', fd);
-	len++;
-	return (len);
-}*/
+		i += ft_printnum(nbr / 10);
+	c = (nbr % 10) + '0';
+	i += write(1, &c, 1);
+	return (i);
+}
+/*
 int	ft_printnum(int num)
 {
 	long	len;
@@ -54,3 +54,8 @@ int	ft_printnum(int num)
 	len++;
 	return ((int) len);
 }
+int main(void)
+{
+	int i = ft_printnum(-99999);
+	printf("\n%i",i);
+}*/
